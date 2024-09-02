@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chad's Personal Webpage</title>
+    <title>Chad Parnin's Site</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif;
             background-color: #121212;
             color: #ffffff;
             margin: 0;
@@ -50,17 +52,31 @@
             color: #00aaff;
         }
 
+        #about .about-content {
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+
+        #about img {
+            width: 200px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        #about h2 {
+            margin: 0;
+        }
+
+        #about p {
+            margin: 0;
+            margin-top: 10px;
+        }
+
         .contact-info {
             display: flex;
             justify-content: space-around;
             padding-top: 10px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #1f1f1f;
-            color: #cccccc;
         }
 
         .contact-info a {
@@ -71,11 +87,39 @@
         .contact-info a:hover {
             text-decoration: underline;
         }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1f1f1f;
+            color: #cccccc;
+        }
+
+        img {
+            transition: transform 0.3s;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        .button {
+            background-color: #00aaff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0088cc;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Webpage</h1>
+        <h1>Chad Parnin's Personal Site</h1>
     </header>
 
     <nav>
@@ -86,20 +130,25 @@
     </nav>
 
     <section id="about">
-        <h2>UNDER CONSTRUCTION</h2>
-    </section>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hi, I'm Chad. I'm passionate about cybersecurity, application security, and keeping up with the latest in tech. Welcome to my personal page where you can learn more about me, my work, and how to get in touch.</p>
+        <div class="about-content">
+            <img src="images/me.jpg" alt="Chad Parnin">
+            <div>
+                <h2>About Me</h2>
+                <p>Hey, welcome to my page.<br>
+                    I'm passionate about all things in information security:  application security, cloud security, infrastructure security, penetration testing, Python scripting, getting certs, and more.<br>
+                    I think it's important to be a good human, be available to others, and seek ways to grow as a person in all facets (mind, body, soul).<br>
+                    This is where you can learn more about me, my work, and how to get in touch.<br>
+                    I'm always looking for new opportunities to learn and grow, so feel free to reach out!</p>
+                </p>
+            </div>
+        </div>
     </section>
 
     <section id="resume">
         <h2>Resume</h2>
-        <p>Here you can include your professional experience, education, and certifications.</p>
-        <!-- Add more detailed content here -->
+        <p>My PDF resume (as of Fall 2024): <a href="resume.pdf" target="_blank">Download Resume</a></p>
     </section>
-
+    
     <section id="projects">
         <h2>Projects</h2>
         <p>Check out some of the projects I've worked on:</p>
@@ -113,8 +162,8 @@
         <h2>Contact</h2>
         <p>You can reach me through LinkedIn or check out my GitHub for more of my work.</p>
         <div class="contact-info">
-            <a href="https://www.linkedin.com/in/your-profile">LinkedIn</a>
-            <a href="https://github.com/your-username">GitHub</a>
+            <a href="https://www.linkedin.com/in/chadparnin/">LinkedIn</a>
+            <a href="https://github.com/cparnin?tab=repositories">GitHub</a>
         </div>
     </section>
 
