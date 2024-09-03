@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <title>Chad Parnin's Site</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
@@ -73,19 +74,27 @@
             margin-top: 10px;
         }
 
-        .contact-info {
-            display: flex;
-            justify-content: space-around;
-            padding-top: 10px;
+        .project {
+            margin-bottom: 20px;
         }
 
-        .contact-info a {
+        .project ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            line-height: 1.6;
+        }
+
+        .project h3 {
+            margin-bottom: 10px;
+        }
+
+        a {
             color: #00aaff;
-            text-decoration: none;
+            text-decoration: underline;
         }
 
-        .contact-info a:hover {
-            text-decoration: underline;
+        a:hover {
+            text-decoration: none;
         }
 
         footer {
@@ -103,18 +112,59 @@
             transform: scale(1.1);
         }
 
-        .button {
+        /* Unified Button Styling */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Adds space between the buttons */
+            padding-top: 10px;
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
             background-color: #00aaff;
             color: white;
             padding: 10px 20px;
-            text-decoration: none;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+            text-align: center;
         }
 
-        .button:hover {
-            background-color: #0088cc;
+        .contact-button i {
+            margin-right: 8px; /* Space between the icon and text */
+            font-size: 1.5em; /* Slightly larger icon */
         }
+
+        .contact-button:hover {
+            background-color: #0088cc;
+            transform: translateY(-2px); /* Slight lift effect on hover */
+        }
+
+        .contact-button:active {
+            transform: translateY(0); /* Return to normal position when clicked */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+        #about .about-content {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        #about img {
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+    }
     </style>
 </head>
 <body>
@@ -135,11 +185,11 @@
             <div>
                 <h2>About Me</h2>
                 <p>Hi, welcome to my page.<br>
-                    I'm passionate about all things in information security:  application security, cloud security, infrastructure security, penetration testing, Python scripting, getting certs, and more.<br>
+                    I'm passionate about all things in information security: application security, cloud security, infrastructure security, penetration testing, Python scripting, obtaining certs, and more.<br>
                     I think it's important to be a good human, be available to others, and seek ways to grow as a person in all facets (mind, body, soul).<br>
                     This is where you can learn more about me, my work, and how to get in touch.<br>
+                    In my spare time, I enjoy exercising, golf improvement, chess improvement, and spending time with my family.<br>
                     I'm always looking for new opportunities to learn and grow, so feel free to reach out!</p>
-                </p>
             </div>
         </div>
     </section>
@@ -148,29 +198,55 @@
         <h2>Resume</h2>
         <p>You can download my resume as a PDF: <a href="resume.pdf" target="_blank">Chad Parnin Resume</a></p>
         <p>SHA-256 Hash: <code>5852da6ef611f2eabb70a3800f449a98f4cbe6a7252b18b6d0b953aaaa439c34</code></p>
-        <p>For added security, you can also view the VirusTotal scan of my resume: <a href="https://www.virustotal.com/gui/file/5852da6ef611f2eabb70a3800f449a98f4cbe6a7252b18b6d0b953aaaa439c34?nocache=1" target="_blank">View VirusTotal Report</a></p>
+        <p>VirusTotal scan of my resume: <a href="https://www.virustotal.com/gui/file/5852da6ef611f2eabb70a3800f449a98f4cbe6a7252b18b6d0b953aaaa439c34?nocache=1" target="_blank">View VirusTotal Report</a></p>
     </section>
     
     <section id="projects">
         <h2>Projects</h2>
-        <p>Check out some of the projects I've worked on:</p>
-        <ul>
-            <li><strong>Project 1:</strong> Brief description with a <a href="#">link to GitHub</a>.</li>
-            <li><strong>Project 2:</strong> Brief description here.</li>
-        </ul>
+        <p>Some of my most recent projects:</p>
+    
+        <div class="project">
+            <h3><strong>AppSec Engineer for Worldwide E-Commerce Platform</strong></h3>
+            <ul>
+                <li>Automated SAST tooling in the pipeline, improving vulnerability detection efficiency.</li>
+                <li>Collaborate with software engineers on vulnerability remediation for Angular webapp, C# API, and Dart/Flutter iOS and Android mobile apps.</li>
+                <li>Work with third-party pentesters on prioritization and scope definition.</li>
+            </ul>
+        </div>
+    
+        <div class="project">
+            <h3><strong>Cloud Security Engineer for State Government</strong></h3>
+            <ul>
+                <li>Created a comprehensive security roadmap addressing critical and high vulnerabilities in AWS and Azure.</li>
+                <li>Engage with cloud-build teams, leading to an 80% decrease in high-value vulnerabilities.</li>
+                <li>Developed Python scripts to extract and analyze data from AWS Security Hub.</li>
+            </ul>
+        </div>
+    
+        <div class="project">
+            <h3><strong>Created a Vulnerability Scanning Tool in Python</strong> (under construction)</h3>
+            <ul>
+                <li>Developed a custom Python tool to automate vulnerability scanning processes.</li>
+                <li>GitHub: <a href="https://github.com/cparnin/SecurityScanner/blob/main/scanner.py" target="_blank">View on GitHub</a></li>
+            </ul>
+        </div>
     </section>
 
+    <!-- Include Font Awesome for icons -->
     <section id="contact">
         <h2>Contact</h2>
         <p>You can reach me through LinkedIn or check out my GitHub for more of my work.</p>
         <div class="contact-info">
-            <a href="https://www.linkedin.com/in/chadparnin/">LinkedIn</a>
-            <a href="https://github.com/cparnin?tab=repositories">GitHub</a>
+            <a href="https://www.linkedin.com/in/chadparnin/" target="_blank" class="contact-button" aria-label="Chad Parnin on LinkedIn">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/cparnin?tab=repositories" target="_blank" class="contact-button" aria-label="Chad Parnin on GitHub">
+                <i class="fab fa-github"></i> GitHub
+            </a>
         </div>
     </section>
-
     <footer>
-        <p>&copy; 2024 Chad Parnin. All rights reserved.</p>
+        <p>&copy; 2024 Chad Parnin</p>
     </footer>
 </body>
 </html>
