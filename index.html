@@ -30,12 +30,246 @@
     <meta property="og:type" content="website">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <title>Chad Parnin</title>
+    <title>Chad Parnin | Information Security</title>
+    <meta name="description" content="Chad Parnin's personal site. Discover expertise in application security, cloud security, penetration testing, and Python scripting. Contact for collaboration." />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
-        #about h2,body{margin:0}#about h2,a,h1,h2,h3,nav a:hover{color:#0af}a,a:hover{text-decoration:underline}footer,section{padding:20px;background:#1f1f1f}footer,header,section{background:#1f1f1f}.contact-button,nav a{color:#fff;text-decoration:none}.contact-button,.hero-text,footer,header{text-align:center}body{font-family:Roboto,Arial,sans-serif;background-color:#121212;color:#fff;padding:0;line-height:1.6}header{color:#fff;padding:10px 20px}nav{display:flex;justify-content:center;background:#2c2c2c;padding:10px}nav a{margin:0 15px}.hero{position:relative;width:100%;height:400px;overflow:hidden}.hero img{width:100%;height:100%;object-fit:cover;object-position:50% 65%}.hero-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff}.hero-text h1{font-size:2.5em;color:#fff;margin:0}.hero-text p{font-size:1.5em;color:#fff}.hero::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5)}@keyframes fadeIn{from{opacity:0}to{opacity:1}}.fade-in{animation:2s ease-in-out fadeIn}section{margin:20px auto;max-width:800px;border-radius:8px;box-shadow:0 4px 15px rgba(0,0,0,.3)}h1,h2,h3{font-family:Poppins,sans-serif}#about .about-content{display:flex;align-items:center;text-align:left;padding:20px 0}.images-column{display:flex;flex-direction:column;margin-right:20px;justify-content:center}.images-column img{width:200px;border-radius:50%;margin-bottom:20px}.text-column{flex-grow:1}#about p{margin:10px 0 0;line-height:1.8}a:hover{color:#0cf;transition:color .3s}footer{color:#ccc}img{transition:transform .4s ease-in-out}img:hover{transform:scale(1.05)}.contact-info{display:flex;justify-content:center;gap:20px;padding-top:10px}.contact-button{display:inline-flex;align-items:center;background-color:#0af;padding:10px 20px;border-radius:5px;font-size:1.2em;font-weight:700;transition:background-color .3s,transform .3s}.contact-button i{margin-right:8px;font-size:1.5em}.contact-button:hover{background-color:#08c;transform:translateY(-4px);box-shadow:0 6px 20px rgba(0,170,255,.5)}.contact-button:active{transform:translateY(0)}@media (max-width:600px){.contact-info{flex-direction:column;gap:10px}#about .about-content{flex-direction:column;text-align:center}#about img{margin-right:0;margin-bottom:20px}}
-    </style>
+        /* General Body Styling */
+        body {
+            font-family: Roboto, Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+    
+        /* Header Styling */
+        header {
+            color: #fff;
+            background: #1f1f1f;
+            padding: 10px 20px;
+            text-align: center;
+        }
+    
+        /* Navigation Styling */
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #2c2c2c;
+            padding: 10px;
+        }
+    
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+    
+        nav a:hover {
+            color: #00aaff;
+        }
+    
+        /* Section & Footer Styling */
+        section, footer {
+            padding: 20px;
+            background: #1f1f1f;
+        }
+    
+        section {
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+    
+        footer {
+            color: #ccc;
+            text-align: center;
+        }
+    
+        /* Headings */
+        h1, h2, h3 {
+            color: #00aaff;
+            font-family: Poppins, sans-serif;
+            margin: 0;
+        }
+    
+        /* About Section */
+        #about .about-content {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            padding: 20px 0;
+        }
+    
+        #about h2 {
+            color: #00aaff;
+            margin: 0;
+        }
+    
+        #about p {
+            margin: 10px 0 0;
+            line-height: 1.8;
+        }
+    
+        .images-column {
+            display: flex;
+            flex-direction: column;
+            margin-right: 20px;
+            justify-content: center;
+        }
+    
+        .images-column img {
+            width: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            transition: transform 0.4s ease-in-out;
+        }
+    
+        img:hover {
+            transform: scale(1.05);
+        }
+    
+        .text-column {
+            flex-grow: 1;
+        }
+    
+        /* Project Section */
+        .project ul li:hover {
+            color: #00aaff;
+            cursor: pointer;
+            transform: translateY(-3px);
+            transition: all 0.3s ease;
+        }
+    
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background-image: url('images/background.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 65%;
+        }
+    
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-align: center;
+        }
+    
+        .hero-text h1 {
+            font-size: 2.5em;
+            color: #fff;
+        }
+    
+        .hero-text p {
+            font-size: 1.5em;
+            color: #fff;
+        }
+    
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+    
+        /* Contact Section */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding-top: 10px;
+        }
+    
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: #00aaff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+            text-decoration: none;
+        }
+    
+        .contact-button i {
+            margin-right: 8px;
+            font-size: 1.5em;
+        }
+    
+        .contact-button:hover {
+            background-color: #0088cc;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0, 170, 255, 0.5);
+        }
+    
+        .contact-button:active {
+            transform: translateY(0);
+        }
+    
+        /* General Anchor Styling */
+        a {
+            color: #00aaff;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+    
+        a:hover {
+            color: #00ccff;
+            text-decoration: none;
+        }
+    
+        /* Keyframe Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    
+        .fade-in {
+            animation: 2s ease-in-out fadeIn;
+        }
+    
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+    
+            #about .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+    
+            #about img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>    
 </head>
 <body>
     <div class="hero">
@@ -55,9 +289,10 @@
     <section id="about">
         <div class="about-content">
             <div class="images-column">
-                <img src="images/me2.jpg" alt="Chad Parnin headshot">
-                <img src="images/momdad.jpg" alt="Chad Parnin Mom and Dad">
-                <img src="images/fam.jpg" alt="Chad Parnin family">
+                <img src="images/me2.jpg" alt="Headshot of Chad Parnin" />
+                <img src="images/momdad.jpg" alt="Chad Parnin with his parents" />
+                <img src="images/fam.jpg" alt="Chad Parnin with family at a Tampa Bay Lightning game" />
+
             </div>
             <div class="text-column">
                 <h2>About Me</h2>
@@ -78,7 +313,7 @@
         <h2>Recent Projects</h2>
     
         <div class="project">
-            <h3><strong>AppSec Engineer on a Worldwide E-Commerce Platform Project</strong></h3>
+            <h3><strong>AppSec Engineer on a Worldwide E-Commerce Project</strong></h3>
             <ul>
                 <li>Automated SAST tooling in the pipeline, improving vulnerability detection efficiency.</li>
                 <li>Collaborate with software engineers on vulnerability remediation for Angular webapp, C# API, and Dart/Flutter iOS and Android mobile apps.</li>
