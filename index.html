@@ -33,7 +33,7 @@
     <title>Chad Parnin | Information Security</title>
     <meta name="description" content="Chad Parnin's personal site. Discover expertise in application security, cloud security, penetration testing, and Python scripting. Contact for collaboration." />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/c.jpg" type="image/x-icon">
     <style>
         /* General Body Styling */
         body {
@@ -44,106 +44,88 @@
             padding: 0;
             line-height: 1.6;
         }
-    
-        /* Header Styling */
-        header {
-            color: #fff;
-            background: #1f1f1f;
-            padding: 10px 20px;
-            text-align: center;
+
+        /* Light Mode Styles */
+        body.light-mode {
+            background-color: #ffffff;
+            color: #121212;
         }
-    
+
+        /* Header & Footer Styling */
+        header, footer {
+            padding: 10px 20px;
+            background: #1f1f1f;
+            text-align: center;
+            color: #fff;
+        }
+
+        .light-mode header, .light-mode footer {
+            background-color: #f0f0f0;
+            color: #121212;
+        }
+
         /* Navigation Styling */
         nav {
             display: flex;
-            justify-content: center;
-            background: #2c2c2c;
-            padding: 10px;
+            justify-content: flex-start; /* Aligns the links to the left */
+            padding: 10px 20px; /* Adds padding on the left to match the About Me section */
+            background: #1f1f1f;
         }
-    
+
+        .nav-links {
+            display: flex;
+            gap: 20px; /* Adds spacing between the links */
+        }
+
+        .light-mode nav {
+            background-color: #e0e0e0;
+        }
+
         nav a {
             color: #fff;
             text-decoration: none;
-            margin: 0 15px;
+            transition: color 0.3s;
         }
-    
+
         nav a:hover {
             color: #00aaff;
         }
-    
-        /* Section & Footer Styling */
-        section, footer {
-            padding: 20px;
-            background: #1f1f1f;
+
+        /* Toggle Button Styles */
+        #toggle-dark-mode {
+            margin-left: auto; /* Aligns the toggle button to the right */
+            width: 60px;
+            height: 34px;
+            background-color: #ccc;
+            border-radius: 34px;
+            transition: background-color 0.3s ease-in-out;
+            position: relative;
         }
-    
-        section {
-            margin: 20px auto;
-            max-width: 800px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-    
-        footer {
-            color: #ccc;
-            text-align: center;
-        }
-    
-        /* Headings */
-        h1, h2, h3 {
-            color: #00aaff;
-            font-family: Poppins, sans-serif;
-            margin: 0;
-        }
-    
-        /* About Section */
-        #about .about-content {
-            display: flex;
-            align-items: center;
-            text-align: left;
-            padding: 20px 0;
-        }
-    
-        #about h2 {
-            color: #00aaff;
-            margin: 0;
-        }
-    
-        #about p {
-            margin: 10px 0 0;
-            line-height: 1.8;
-        }
-    
-        .images-column {
-            display: flex;
-            flex-direction: column;
-            margin-right: 20px;
-            justify-content: center;
-        }
-    
-        .images-column img {
-            width: 200px;
+
+        #toggle-dark-mode::before {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 30px;
+            height: 30px;
+            background-color: white;
             border-radius: 50%;
-            margin-bottom: 20px;
-            transition: transform 0.4s ease-in-out;
+            transition: transform 0.3s ease-in-out;
         }
-    
-        img:hover {
-            transform: scale(1.05);
+
+        body.light-mode #toggle-dark-mode {
+            background-color: #4caf50;
         }
-    
-        .text-column {
-            flex-grow: 1;
+
+        body.light-mode #toggle-dark-mode::before {
+            transform: translateX(26px);
         }
-    
-        /* Project Section */
-        .project ul li:hover {
-            color: #00aaff;
-            cursor: pointer;
-            transform: translateY(-3px);
-            transition: all 0.3s ease;
+
+        #toggle-dark-mode:hover {
+            background-color: #0088cc;
         }
-    
+
         /* Hero Section */
         .hero {
             position: relative;
@@ -152,15 +134,15 @@
             background-image: url('images/background.jpg');
             background-size: cover;
             background-position: center;
+            overflow: hidden; /* Prevents image overflow */
         }
-    
+
         .hero img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: 50% 65%;
         }
-    
+
         .hero-text {
             position: absolute;
             top: 50%;
@@ -169,17 +151,11 @@
             color: #fff;
             text-align: center;
         }
-    
-        .hero-text h1 {
-            font-size: 2.5em;
-            color: #fff;
+
+        .hero-text h1, .hero-text p {
+            margin: 0;
         }
-    
-        .hero-text p {
-            font-size: 1.5em;
-            color: #fff;
-        }
-    
+
         .hero::before {
             content: "";
             position: absolute;
@@ -189,7 +165,65 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
         }
-    
+
+        /* Section Styling */
+        section {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            background-color: #1f1f1f;
+        }
+
+        .light-mode section {
+            background-color: #f9f9f9;
+            color: #121212;
+        }
+
+        /* Headings */
+        h1, h2, h3 {
+            color: #00aaff;
+            font-family: Poppins, sans-serif;
+            margin: 0;
+        }
+
+        /* About Section */
+        #about .about-content {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            padding: 20px 0;
+        }
+
+        #about h2 {
+            margin: 0;
+            color: #00aaff;
+        }
+
+        #about p {
+            margin: 10px 0 0;
+            line-height: 1.8;
+        }
+
+        .images-column {
+            display: flex;
+            flex-direction: column;
+            margin-right: 20px;
+            justify-content: center;
+        }
+
+        .images-column img {
+            width: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
         /* Contact Section */
         .contact-info {
             display: flex;
@@ -197,7 +231,7 @@
             gap: 20px;
             padding-top: 10px;
         }
-    
+
         .contact-button {
             display: inline-flex;
             align-items: center;
@@ -210,34 +244,34 @@
             transition: background-color 0.3s, transform 0.3s;
             text-decoration: none;
         }
-    
+
         .contact-button i {
             margin-right: 8px;
             font-size: 1.5em;
         }
-    
+
         .contact-button:hover {
             background-color: #0088cc;
             transform: translateY(-4px);
             box-shadow: 0 6px 20px rgba(0, 170, 255, 0.5);
         }
-    
+
         .contact-button:active {
             transform: translateY(0);
         }
-    
+
         /* General Anchor Styling */
         a {
             color: #00aaff;
             text-decoration: underline;
             transition: color 0.3s;
         }
-    
+
         a:hover {
             color: #00ccff;
             text-decoration: none;
         }
-    
+
         /* Keyframe Animation */
         @keyframes fadeIn {
             from {
@@ -247,30 +281,32 @@
                 opacity: 1;
             }
         }
-    
+
         .fade-in {
             animation: 2s ease-in-out fadeIn;
         }
-    
+
         /* Responsive Design */
         @media (max-width: 600px) {
             .contact-info {
                 flex-direction: column;
                 gap: 10px;
             }
-    
+
             #about .about-content {
                 flex-direction: column;
                 text-align: center;
             }
-    
+
             #about img {
                 margin-right: 0;
                 margin-bottom: 20px;
             }
         }
+
     </style>    
 </head>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G3KKYW5Y1V"></script>
 <script>
@@ -280,19 +316,23 @@
 
   gtag('config', 'G-G3KKYW5Y1V');
 </script>
+
 <body>
     <div class="hero">
-        <img src="images/colorado.jpg" alt="Tsankawi">
+        <img src="images/tsankawi.jpg" alt="Tsankawi">
         <div class="hero-text">
             <h1>Welcome to Chad Parnin's Site</h1>
         </div>
     </div>
 
     <nav>
-        <a href="#about">About Me</a>
-        <a href="#projects">Projects</a>
-        <a href="#resume">Resume</a>
-        <a href="#contact">Contact</a>
+        <div class="nav-links">
+            <a href="#about">About Me</a>
+            <a href="#projects">Projects</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div id="toggle-dark-mode"></div>
     </nav>
 
     <section id="about">
@@ -376,5 +416,10 @@
     <footer>
         <p>&copy; 2024 Chad Parnin</p>
     </footer>
+    <script>
+        document.getElementById("toggle-dark-mode").addEventListener("click", function() {
+            document.body.classList.toggle("light-mode");
+        });
+    </script>    
 </body>
 </html>
