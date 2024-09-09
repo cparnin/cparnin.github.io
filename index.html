@@ -174,7 +174,15 @@
             text-align: center;
         }
 
-        .hero-text h1, .hero-text p {
+        .hero-text h1 {
+            text-shadow: none; /* Remove any shadow */
+            color: rgba(255, 255, 255, 1); /* Pure white color */
+            font-weight: 800; /* Bolder text */
+            font-size: 2.5em; /* Increase size if necessary */
+            margin: 0;
+        }
+
+        .hero-text p {
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Adds a shadow to the text */
             margin: 0;
         }
@@ -370,40 +378,40 @@
         }
         /* Hide nav-links on smaller screens */
         /* Mobile menu hidden by default */
-.mobile-nav-links {
-    display: none;
-    flex-direction: column;
-    background-color: #1f1f1f;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    padding: 10px 0;
-}
+        .mobile-nav-links {
+            display: none;
+            flex-direction: column;
+            background-color: #1f1f1f;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 10px 0;
+        }
 
-/* Show mobile nav when class toggled */
-.mobile-nav-links.show {
-    display: flex;
-}
+        /* Show mobile nav when class toggled */
+        .mobile-nav-links.show {
+            display: flex;
+        }
 
-/* Mobile menu icon should only show on small screens */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none; /* Hide the regular nav links */
-    }
+        /* Mobile menu icon should only show on small screens */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hide the regular nav links */
+            }
 
-    #mobile-menu {
-        display: block;
-    }
+            #mobile-menu {
+                display: block;
+                cursor: pointer;
+            }
 
-    .mobile-nav-links a {
-        padding: 10px;
-        text-align: center;
-        display: block;
-    }
-}
-
+            .mobile-nav-links a {
+                padding: 10px;
+                text-align: center;
+                display: block;
+            }
+        }
     </style>    
 </head>
 
@@ -435,11 +443,17 @@
             </div>
             <div id="toggle-dark-mode"></div>
             <div id="mobile-menu" class="mobile-menu">
-                <i class="fas fa-bars"></i>
+                <i class="fas fa-bars"></i> <!-- Mobile menu icon -->
             </div>
         </div>
-    </nav>    
-
+        <div class="mobile-nav-links"> <!-- Mobile navigation links, hidden by default -->
+            <a href="#about">About Me</a>
+            <a href="#projects">Projects</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+       
     <section id="about" data-aos="fade-up"> <!-- Fade up effect -->
         <div class="about-content">
             <div class="images-column">
@@ -533,15 +547,16 @@
     </script>
     <script>
         const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
+        const mobileNavLinks = document.querySelector('.mobile-nav-links');
     
         mobileMenu.addEventListener('click', function() {
-            navLinks.classList.toggle('show');
+            mobileNavLinks.classList.toggle('show'); // Toggle the "show" class on the mobile menu
+        });
         
         // Dark Mode Toggle
-    document.getElementById("toggle-dark-mode").addEventListener("click", function() {
-        document.body.classList.toggle("light-mode");
-    });
+        document.getElementById("toggle-dark-mode").addEventListener("click", function() {
+            document.body.classList.toggle("light-mode");
+        });
     </script>    
 </body>
 </html>
