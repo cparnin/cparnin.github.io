@@ -175,11 +175,11 @@
         }
 
         .hero-text h1 {
-            color: #ffffff !important; /* Pure white */
+            color: #ffffff !important; /* Force bright white */
             font-weight: 900 !important; /* Boldest weight */
-            font-size: 2.2em !important; /* Adjust size */
+            font-size: 2.2em !important; /* Adjust size to your preference */
             margin: 0;
-            text-shadow: none !important; /* Remove any glow or shadow effect */
+            text-shadow: none !important; /* Remove shadow for clean text */
         }
 
         .hero-text p {
@@ -188,7 +188,13 @@
         }
 
         .hero::before {
-            background: rgba(0, 0, 0, 0.2); /* Reduced opacity for lighter overlay */
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1); /* Lighten the overlay */
         }
 
         /* Section Styling */
@@ -350,44 +356,40 @@
             }
         }
 
-        .mobile-nav-links {
-            display: none; /* Initially hide the mobile nav */
-            flex-direction: column;
-            background-color: #1f1f1f;
-            position: absolute;
-            top: 50%; /* Position it in the middle */
-            left: 50%;
-            transform: translate(-50%, -50%); /* Center it horizontally and vertically */
-            z-index: 1000;
-            padding: 10px 0;
-            text-align: center;
+        /* Hide the hamburger menu and mobile links by default */
+        #mobile-menu, .mobile-nav-links {
+            display: none;
         }
 
         .mobile-nav-links.show {
             display: flex;
         }
 
-        .mobile-nav-links a {
-            padding: 10px;
+        /* Show the hamburger menu only on small screens */
+        @media (max-width: 768px) {
+            #mobile-menu {
+                display: block; /* Show the hamburger menu */
+            }
+
+            .nav-links {
+                display: none; /* Hide normal nav links on mobile */
+            }
+
+            .mobile-nav-links {
+            display: none;
+            flex-direction: column;
+            background-color: #1f1f1f;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            padding: 10px 0;
             text-align: center;
-            display: block;
         }
 
-        /* Mobile menu icon should only show on small screens */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none; /* Hide the regular nav links */
-            }
-
-            #mobile-menu {
-                display: block;
-                cursor: pointer;
-            }
-
-            .mobile-nav-links a {
-                padding: 10px;
-                text-align: center;
-                display: block;
+            .mobile-nav-links.show {
+                display: flex; /* Show mobile links when hamburger is clicked */
             }
         }
     </style>    
@@ -530,6 +532,11 @@
         // Dark Mode Toggle
         document.getElementById("toggle-dark-mode").addEventListener("click", function() {
             document.body.classList.toggle("light-mode");
+            if (document.body.classList.contains("light-mode")) {
+                this.style.backgroundColor = "#4caf50"; // Green for light mode
+            } else {
+                this.style.backgroundColor = "#ccc"; // Gray for dark mode
+            }
         });
     </script>    
 </body>
