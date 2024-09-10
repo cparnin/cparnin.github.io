@@ -151,10 +151,9 @@
             position: relative;
             width: 100%;
             height: 400px;
-            background-image: url('images/tsankawi.jpg');
             background-size: cover;
             background-position: center;
-            overflow: hidden; /* Prevents image overflow */
+            overflow: hidden;
         }
 
         .hero img {
@@ -163,33 +162,35 @@
             object-fit: cover;
         }
 
+        /* Optional overlay for better text contrast */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3); /* Dark overlay */
+            z-index: 1;
+        }
+
         .hero-text {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
-            z-index: 10; /* Ensure text is above the overlay */
+            z-index: 2;
+            background: none;
         }
 
         .hero-text h1 {
-            color: #FFFFFF !important; /* Force pure white */
-            font-weight: 900 !important; /* Maximum boldness */
-            font-size: 2.5em !important; /* Adjusted for better visibility */
+            color: #FFFFFF !important;  /* Force pure white */
+            font-weight: 900;           /* Maximum boldness */
+            font-size: 2.5em;           /* Adjust size */
             margin: 0;
-            text-shadow: none !important; /* Ensure no shadow or glow effect */
-            z-index: 10; /* Ensure the text is above all overlays */
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.2); /* Make the overlay nearly transparent */
-            z-index: 1; /* Overlay should be behind the text */
+            text-shadow: none !important; /* No shadow */
+            opacity: 1 !important;       /* No opacity issues */
+            filter: none !important;     /* Ensure no filters are applied */
         }
 
         /* Section Styling */
@@ -397,6 +398,7 @@
 
 <body>
     <div class="hero">
+        <div class="hero-overlay"></div>
         <img src="images/tsankawi.jpg" alt="Tsankawi">
         <div class="hero-text">
             <h1>Welcome to Chad Parnin's Site</h1>
