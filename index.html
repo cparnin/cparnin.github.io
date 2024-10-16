@@ -3,529 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Chad Parnin's personal website showcasing expertise in information security, application security, cloud security, and Python scripting.">
-    <meta name="keywords" content="Chad Parnin, Information Security, Application Security, Cloud Security, Cybersecurity">
+    <meta name="description" content="Chad Parnin's minimalist personal website showcasing cybersecurity expertise.">
+    <meta name="keywords" content="Chad Parnin, cybersecurity, cloud security, application security">
     <meta name="author" content="Chad Parnin">
     <meta name="robots" content="index, follow">
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Chad Parnin",
-          "jobTitle": "Information Security Engineer",
-          "url": "https://chadparnin.com/",
-          "sameAs": [
-            "https://www.linkedin.com/in/chadparnin/",
-            "https://github.com/cparnin"
-          ],
-          "description": "Chad Parnin specializes in application security, cloud security, and cybersecurity. This website highlights his work and contact information."
-        }
-        </script>
-    <!-- Open Graph Meta Tags for Social Sharing -->
-    <meta property="og:title" content="Chad Parnin's Website">
-    <meta property="og:description" content="Explore Chad Parnin's expertise in application security, information security, and cloud security.">
-    <meta property="og:image" content="https://chadparnin.com/images/me.jpg">
-    <meta property="og:url" content="https://chadparnin.com/">
-    <meta property="og:type" content="website">
+    <title>Chad Parnin | Personal Site</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Include AOS library -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-    <title>Chad Parnin | Information Security</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="images/c.jpg" type="image/x-icon">
     <style>
         /* General Body Styling */
         body {
-            font-family: Roboto, Arial, sans-serif;
-            background-color: #121212;
-            color: #fff;
+            font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Light Mode Styles */
+        /* Background */
+        body.dark-mode {
+            background-color: #121212;
+            color: #fff;
+        }
+
         body.light-mode {
             background-color: #ffffff;
             color: #121212;
         }
 
-        html {
-            scroll-behavior: smooth;
+        /* Toggle Button */
+        .toggle-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
         }
 
-        /* Header & Footer Styling */
-        header, footer {
-            padding: 10px 20px;
-            background: #1f1f1f;
-            text-align: center;
-            color: #fff;
-        }
-
-        .light-mode header, .light-mode footer {
-            background-color: #f0f0f0;
-            color: #121212;
-        }
-
-        /* Navigation Styling */
-        nav {
-            display: flex;
-            justify-content: space-between; /* Space out the links and toggle button */
-            align-items: center; /* Vertically center the items */
-            padding: 10px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            margin-bottom: 20px;
-            background: #1f1f1f;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px; /* Adds spacing between the links */
-        }
-
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-
-        .light-mode nav {
-            background-color: #e0e0e0;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 15px;
-            font-weight: bold;
-            transition: color 0.3s, background-color 0.3s;
-        }
-
-        nav a:hover {
-            color: #00aaff; /* Lighter blue on hover */
-            background-color: rgba(0, 170, 255, 0.1); /* Subtle background color on hover */
-            border-radius: 5px; /* Rounded corners */
-            box-shadow: 0 4px 10px rgba(0, 170, 255, 0.5); /* Slight shadow effect */
-        }
-
-        /* Toggle Button Styles */
         #toggle-dark-mode {
             width: 60px;
-            height: 34px;
+            height: 30px;
             background-color: #ccc;
-            border-radius: 34px;
-            transition: background-color 0.3s ease-in-out;
+            border-radius: 30px;
             position: relative;
+            cursor: pointer;
         }
 
         #toggle-dark-mode::before {
-            content: "";
+            content: '';
+            width: 26px;
+            height: 26px;
+            background-color: white;
+            border-radius: 50%;
             position: absolute;
             top: 2px;
             left: 2px;
-            width: 30px;
-            height: 30px;
-            background-color: white;
-            border-radius: 50%;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        body.light-mode #toggle-dark-mode {
-            background-color: #4caf50;
+            transition: 0.3s;
         }
 
         body.light-mode #toggle-dark-mode::before {
-            transform: translateX(26px);
-        }
-
-        #toggle-dark-mode:hover {
-            background-color: #0088cc;
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            background-size: cover;
-            background-position: center;
-            overflow: hidden;
-        }
-
-        .hero img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Optional overlay for better text contrast */
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.3); /* Dark overlay */
-            z-index: 1;
-        }
-
-        .hero-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            z-index: 2;
-            background: none;
-        }
-
-        .hero-text h1 {
-            color: #FFFFFF !important;  /* Force pure white */
-            font-weight: 900;           /* Maximum boldness */
-            font-size: 2.5em;           /* Adjust size */
-            margin: 0;
-            text-shadow: none !important; /* No shadow */
-            opacity: 1 !important;       /* No opacity issues */
-            filter: none !important;     /* Ensure no filters are applied */
+            transform: translateX(30px);
         }
 
         /* Section Styling */
         section {
-            padding: 40px 20px; /* Uniform padding inside sections */
-            margin-bottom: 40px; /* Spacing between sections */
-            margin: 20px auto;
-            max-width: 800px; /* Match the width of the nav */
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            background-color: #1f1f1f;
+            text-align: center;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 20px;
         }
 
-        .light-mode section {
-            background-color: #f9f9f9;
-            color: #121212;
+        /* Background Image */
+        body {
+            background: url('images/your-background.jpg') no-repeat center center fixed;
+            background-size: cover;
         }
 
-        /* Headings */
-        h1, h2, h3 {
-            background: linear-gradient(to right, #cccccc, #888888);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-family: Poppins, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        ul {
-            margin: 10px 0;
-        }
-
-        li {
-            margin-bottom: 8px; /* Adds spacing between each item */
-        }
-
-        /* About Section */
-        #about .about-content {
-            display: flex;
-            align-items: center;
-            text-align: left;
-            padding: 20px 0;
-        }
-
-        #about h2 {
-            margin: 0;
-            color: #00aaff;
-        }
-
-        p {
-            margin-bottom: 20px;
-        }
-
-        #about p {
-            margin: 10px 0 0;
-            line-height: 1.8;
-        }
-
-        .images-column {
-            display: flex;
-            flex-direction: column;
-            margin-right: 20px;
-            justify-content: center;
-        }
-
-        .images-column img {
-            width: 200px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            transition: transform 0.4s ease-in-out;
-        }
-
-        img:hover {
-            transform: scale(1.05);
-        }
-
-        .project {
-            margin-bottom: 30px; /* Adds more space between project sections */
-        }
-
-        /* Contact Section */
-        .contact-info {
+        /* Images Styling */
+        .images {
             display: flex;
             justify-content: center;
             gap: 20px;
-            padding-top: 10px;
+            flex-wrap: wrap;
         }
 
-        .contact-button {
-            display: inline-flex;
+        /* Images Styling - Ovals */
+        .images img {
+            width: 250px;  /* Adjust width for oval effect */
+            height: 200px; /* Height is slightly less than width to create an oval shape */
+            border-radius: 50%; /* Still use border-radius to round the corners */
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .images img:hover {
+            transform: scale(1.05);
+        }
+
+        /* About Me Text */
+        #about p {
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+
+        /* Social Links Styling */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            display: flex;
             align-items: center;
-            background-color: #00aaff;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 1.2em;
-            font-weight: bold;
-            transition: background-color 0.3s, transform 0.3s;
-            text-decoration: none;
-        }
-
-        .contact-button i {
-            margin-right: 8px;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            color: #333;
             font-size: 1.5em;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
 
-        .contact-button:hover {
-            background-color: #0088cc;
-            transform: translateY(-4px);
-            box-shadow: 0 6px 20px rgba(0, 170, 255, 0.5);
+        /* Ensure icons are visible and centered */
+        .social-links a i {
+            color: #333;
+            transition: color 0.3s ease;
         }
 
-        .contact-button:active {
-            transform: translateY(0);
+        .social-links a:hover {
+            background-color: #00aaff;
+            color: #fff;
         }
 
-        /* General Anchor Styling */
-        a {
-            color: #00aaff;
-            text-decoration: underline;
-            transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
-            display: inline-block;
+        .social-links a:hover i {
+            color: #fff;
         }
 
-        a:hover {
-            color: #00ccff;
-            transform: scale(1.05); /* Slight zoom on hover */
+        /* No expansion, just color change */
+        .social-links a span {
+            display: none;
         }
 
-        /* Keyframe Animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .fade-in {
-            animation: 2s ease-in-out fadeIn;
-        }
-
-        /* Responsive Design */
+        /* Media Query for Mobile */
         @media (max-width: 600px) {
-            .contact-info {
+            .images {
                 flex-direction: column;
                 gap: 10px;
             }
 
-            #about .about-content {
+            .social-links {
                 flex-direction: column;
-                text-align: center;
-            }
-
-            #about img {
-                margin-right: 0;
-                margin-bottom: 20px;
+                gap: 20px;
             }
         }
 
-        /* Hide the hamburger menu and mobile links by default */
-        #mobile-menu, .mobile-nav-links {
-            display: none;
-        }
+    </style>
 
-        /* Show the hamburger menu only on small screens */
-        @media (max-width: 768px) {
-            #mobile-menu {
-                display: block; /* Show the hamburger menu */
-            }
-
-            .nav-links {
-                display: none; /* Hide normal nav links on mobile */
-            }
-
-            .mobile-nav-links {
-            display: none;
-            flex-direction: column;
-            background-color: #1f1f1f;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1000;
-            padding: 10px 0;
-            text-align: center;
-        }
-            .mobile-nav-links.show {
-                display: flex; /* Show mobile links when hamburger is clicked */
-            }
-        }
-    </style>    
 </head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G3KKYW5Y1V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-G3KKYW5Y1V');
-</script>
-
-<body>
-    <div class="hero">
-        <div class="hero-overlay"></div>
-        <img src="images/palm1.jpg" alt="Tsankawi">
-        <div class="hero-text">
-            <h1>Welcome to Chad Parnin's Site</h1>
-        </div>
+<body class="dark-mode">
+    <!-- Toggle Light/Dark Mode -->
+    <div class="toggle-container">
+        <div id="toggle-dark-mode"></div>
     </div>
 
-    <nav>
-        <div class="nav-wrapper">
-            <div class="nav-links">
-                <a href="#about">About Me</a>
-                <a href="#projects">Projects</a>
-                <a href="#resume">Resume</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div id="toggle-dark-mode"></div>
-            <div id="mobile-menu" class="mobile-menu">
-                <i class="fas fa-bars"></i> <!-- Mobile menu icon -->
-            </div>
+    <section id="about">
+        <div class="images">
+            <img src="images/me2.jpg" alt="Chad Parnin Headshot">
+            <img src="images/momdad.jpg" alt="Chad Parnin with Parents">
+            <img src="images/fam.jpg" alt="Tampa Bay Lightning Game with family">
         </div>
-        <div class="mobile-nav-links"> <!-- Mobile navigation links, hidden by default -->
-            <a href="#about">About Me</a>
-            <a href="#projects">Projects</a>
-            <a href="#resume">Resume</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-       
-    <section id="about" data-aos="fade-up"> <!-- Fade up effect -->
-        <div class="about-content">
-            <div class="images-column">
-                <img src="images/me2.jpg" alt="Headshot of Chad Parnin" />
-                <img src="images/momdad.jpg" alt="Chad Parnin with his parents" />
-                <img src="images/fam.jpg" alt="Chad Parnin with family at a Tampa Bay Lightning game" />
-
-            </div>
-            <div class="text-column">
-                <h2>About Me</h2>
-                <p>Hello friend, nice to meet you halfway - welcome to my professional site. </p><br>
-                <p>I grew up in the midwest, but now live in the greater Tampa Bay area.</p><br>
-                <p>I'm passionate about information security, with a focus on application security, cloud security, penetration testing, and Python scripting. I hold a Master’s in Cybersecurity Technology, a Bachelor’s in Computer Science from Indiana University, and numerous security certifications.</p><br>
-                <p>My experience spans government roles requiring a security clearance as well as collaboration with software engineers in private industry, which gives me a broad perspective in the field.</p><br>
-                <p>I believe in being a good human and always striving for growth — in mind, body, and spirit.</p><br>
-                <p>Outside of work, I enjoy fitness, being a golf nut, improving at chess, cheering on the Tampa Bay Lightning, and spending time with my family.</p><br>
-                <p>I’m always eager for new opportunities to learn and grow, so don’t hesitate to reach out!</p>
-            </div>
-        </div>
+        <p>
+            Hello!</br>
+            I'm Chad Parnin, an information security professional based in the Tampa Bay area.
+            I have experience in engineering, consulting, and security clearance roles, with a focus on application security, cloud security, penetration testing, and system administration.
+            I hold a Master’s in Cybersecurity Technology and a Bachelor’s in Computer Science from Indiana University, along with several security certifications.
+            I'm passionate about continual growth in mind, body, and spirit.
+            Outside of work, you'll find me exercising, playing golf, improving my chess game, cheering on the Tampa Bay Lightning, or spending quality time with my family.
+            </br>
+            Feel free to reach out below!
+        </p>
     </section>
 
-    <section id="projects" data-aos="fade-left"> <!-- Slide in from left -->
-        <h2>Recent Projects</h2><br>
-    
-        <div class="project">
-            <h3><strong>AppSec Engineer on a Worldwide E-Commerce Project</strong></h3>
-            <ul>
-                <li>Automated SAST tooling in the pipeline which has improved vulnerability detection</li>
-                <li>Collaborate with software engineers on vulnerability remediation for webapps, APIs, and iOS/Android mobile apps</li>
-                <li>Run DAST tooling and work with third-party pentesters on scope and prioritization</li>
-            </ul>
-        </div>
-    
-        <div class="project">
-            <h3><strong>Cloud Security Engineer for State Government project</strong></h3>
-            <ul>
-                <li>Created a comprehensive security roadmap encompassing compliance frameworks, vulnerability remediation, and cloud security best practices</li>
-                <li>Addressed critical and high vulnerabilities in AWS and Azure by engaging with cloud-build teams, which led to an 80% decrease in high-value vulnerabilities</li>
-                <li>Developed Python scripts to extract and analyze data from AWS Security Hub</li>
-            </ul>
-        </div>
-   
-        <div class="project">
-            <h3><strong>Penetration Testing and Vulnerability Assessments for External Customers</strong></h3>
-            <ul>
-                <li>Conducted open-source intelligence gathering and pentesting on network infrastructure and web apps</li>
-                <li>Used a wide range of tools including SpiderFoot, Shodan, ARIN, ScoutSuite, Nmap, BurpSuite, Invicti, Bloodhound, Metasploit, Hydra, Hashcat, and various C2 frameworks</li>
-                <li>Focused on delivering precise and thorough reports tailored to the intended audience</li>
-            </ul>
-        </div>
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/chadparnin/" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i><span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/cparnin" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i><span>GitHub</span>
+        </a>
+        <a href="https://drive.google.com/file/d/18fXdz9stOaKXjD15HUJphzl1h6_-__lM/view?usp=sharing" target="_blank" aria-label="Resume">
+            <i class="fas fa-file-alt"></i><span>Resume</span>
+        </a>
+    </div>        
 
-        <div class="project">
-            <h3><strong>Development in Spare Time</strong></h3>
-            <ul>
-                <li>Developed a vulnerability scanning Tool in Python (under construction): <a href="https://github.com/cparnin/SecurityScanner/blob/main/scanner.py" target="_blank">View on GitHub</a></li>
-                <li>Developed this site</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="resume" data-aos="fade-right"> <!-- Slide in from right -->
-        <h2>Resume</h2>
-        <p>My pdf resume: <a href="resume.pdf" target="_blank">Chad Parnin Resume</a></p>
-        <p>VirusTotal scan of resume: <a href="https://www.virustotal.com/gui/file/5852da6ef611f2eabb70a3800f449a98f4cbe6a7252b18b6d0b953aaaa439c34?nocache=1" target="_blank">View VirusTotal Report</a></p>
-    </section>
-
-    <!-- Include Font Awesome for icons -->
-    <section id="contact" data-aos="fade-up"> <!-- Fade up -->
-        <h2>Contact</h2>
-        <p>You can reach me through LinkedIn or check out my GitHub for more of my work.</p>
-        <div class="contact-info">
-            <a href="https://www.linkedin.com/in/chadparnin/" target="_blank" class="contact-button" aria-label="Chad Parnin on LinkedIn">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="https://github.com/cparnin?tab=repositories" target="_blank" class="contact-button" aria-label="Chad Parnin on GitHub">
-                <i class="fab fa-github"></i> GitHub
-            </a>
-        </div>
-    </section>
-    <footer>
-        <p>&copy; 2024 Chad Parnin</p>
-    </footer>
-    <!-- Initialize AOS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Script for Light/Dark Mode Toggle -->
     <script>
-        AOS.init();
-    </script>
-    <script>
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileNavLinks = document.querySelector('.mobile-nav-links');
-    
-        mobileMenu.addEventListener('click', function() {
-            mobileNavLinks.classList.toggle('show'); // Toggle the "show" class on the mobile menu
-        });
-    </script>
-    <script>
-        // Dark Mode Toggle
         document.getElementById("toggle-dark-mode").addEventListener("click", function() {
             document.body.classList.toggle("light-mode");
+            document.body.classList.toggle("dark-mode");
         });
-    </script>    
+    </script>
 </body>
 </html>
