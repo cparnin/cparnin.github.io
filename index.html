@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Chad Parnin's minimalist personal website showcasing cybersecurity expertise.">
-    <meta name="keywords" content="Chad Parnin, cybersecurity, cloud security, application security">
+    <meta name="description" content="Chad Parnin's professional website. Cloud security, application security, penetration testing, and consulting services.">
+    <meta name="keywords" content="Chad Parnin, cybersecurity, cloud security, application security, penetration testing, consulting, Tampa Bay">
     <meta name="author" content="Chad Parnin">
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="Chad Parnin | Information Security Professional">
+    <meta property="og:description" content="Chad Parnin's professional site focused on cloud security, application security, and penetration testing.">
+    <meta property="og:image" content="https://chadparnin.com/images/me.jpg">
+    <meta property="og:url" content="https://chadparnin.com/">
+    <meta property="og:type" content="website">
     <meta name="robots" content="index, follow">
-    <title>Chad Parnin | Personal Site</title>
+    <title>Chad Parnin | InfoSec</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
@@ -15,6 +21,7 @@
         /* General Body Styling */
         body {
             font-family: 'Poppins', Arial, sans-serif;
+            font-size: 18px;
             margin: 0;
             padding: 0;
             min-height: 100vh;
@@ -32,8 +39,17 @@
         }
 
         body.light-mode {
-            background-color: #ffffff;
+            background-color: #c0c0c0; /* Darker gray background */
+            #background-color: #e0e0e0; /* less gray background */
             color: #121212;
+        }
+        
+        h1, h2, h3 {
+            font-size: 2.5em; /* Adjust heading sizes for balance */
+        }
+
+        p {
+            font-size: 1.1em; /* Increase paragraph text */
         }
 
         /* Toggle Button */
@@ -156,12 +172,12 @@
         @media (max-width: 600px) {
             .images {
                 flex-direction: column;
-                gap: 10px;
+                align-items: center; /* Center images on mobile */
             }
 
             .social-links {
-                flex-direction: column;
-                gap: 20px;
+                flex-direction: row; /* Keep links horizontal on mobile */
+                gap: 10px; /* Reduce gap for smaller screens */
             }
         }
 
@@ -182,13 +198,13 @@
         </div>
         <p>
             Hello!</br>
-            I'm Chad Parnin, an information security professional based in the Tampa Bay area.
+            I'm Chad Parnin, an information security professional based in the greater Tampa Bay area.
             I have experience in engineering, consulting, and security clearance roles, with a focus on application security, cloud security, penetration testing, and system administration.
             I hold a Master’s in Cybersecurity Technology and a Bachelor’s in Computer Science from Indiana University, along with several security certifications.
             I'm passionate about continual growth in mind, body, and spirit.
             Outside of work, you'll find me exercising, playing golf, improving my chess game, cheering on the Tampa Bay Lightning, or spending quality time with my family.
             </br>
-            Feel free to reach out below!
+            Feel free to reach out by contacting me via LinkedIn below.
         </p>
     </section>
 
