@@ -7,17 +7,17 @@
     <meta name="author" content="Chad Parnin">
     <link rel="canonical" href="https://chadparnin.com/">
     <!-- Open Graph for social sharing -->
-    <meta property="og:title" content="Chad Parnin | AppSec & Security Engineering">
+    <meta property="og:title" content="Chad Parnin | AppSec & Penetration Testing">
     <meta property="og:description" content="I help engineering teams ship secure software, building AppSec programs, CI/CD-integrated scanning, and AI-assisted security tooling.">
     <meta property="og:image" content="https://chadparnin.com/images/Me-Feb2025.jpg">
     <meta property="og:url" content="https://chadparnin.com/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Chad Parnin | AppSec & Security Engineering">
+    <meta name="twitter:title" content="Chad Parnin | AppSec & Penetration Testing">
     <meta name="twitter:description" content="I help engineering teams ship secure software, building AppSec programs, CI/CD-integrated scanning, and AI-assisted security tooling.">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0d1117">
-    <title>Chad Parnin | AppSec & Security Engineering</title>
+    <title>Chad Parnin | AppSec & Penetration Testing</title>
     <script>
         // Apply theme before first paint to avoid a light-mode flash
         document.documentElement.setAttribute('data-theme',
@@ -37,6 +37,20 @@
             "https://www.linkedin.com/in/chadparnin/",
             "https://github.com/cparnin"
         ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Penetration Testing",
+        "description": "Penetration testing of source code, web applications, APIs, and platforms with AI-assisted workflows, clear evidence, and actionable reporting.",
+        "provider": {
+            "@type": "Person",
+            "name": "Chad Parnin",
+            "url": "https://chadparnin.com/"
+        },
+        "areaServed": "United States"
     }
     </script>
     <link rel="icon" href="images/favicon.png" type="image/png">
@@ -206,6 +220,25 @@
             border: 1px solid var(--border);
             color: var(--text-muted);
         }
+
+        /* ---- Pentest CTA ---- */
+        .cta {
+            margin-top: 40px;
+            border: 1px solid var(--accent);
+            border-radius: 14px;
+            padding: 24px 26px;
+            background: var(--bg-accent);
+        }
+        .cta h2 {
+            margin: 0 0 10px;
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+        .cta h2 i { color: var(--accent); }
+        .cta p { margin: 0; color: var(--text); font-size: 0.98rem; }
+        .cta-actions { margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap; }
 
         /* ---- Gallery ---- */
         .gallery {
@@ -394,6 +427,19 @@
                 </a>
             </div>
 
+            <div class="cta">
+                <h2><i class="fas fa-crosshairs"></i> Need a pentest?</h2>
+                <p>I test source code, web apps, APIs, and platforms, with AI-assisted workflows that go deeper than a scanner. Every finding comes with clear evidence, a report your engineers can act on, and slides for your execs. If you want testing done right, reach out and we'll figure out the best path.</p>
+                <div class="cta-actions">
+                    <button class="btn btn-primary" id="email-btn" type="button">
+                        <i class="fas fa-envelope"></i> Email me
+                    </button>
+                    <a class="btn btn-ghost" href="https://www.linkedin.com/in/chadparnin/" target="_blank" rel="noopener">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+
             <h2 class="section-title"><i class="fas fa-mountain-sun"></i> Images</h2>
             <p class="section-sub">Family, golf, friends, and a road trip through Colorado and Utah's national parks.</p>
             <div class="gallery">
@@ -453,6 +499,13 @@
                 const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
                 apply(next);
                 localStorage.setItem('theme', next);
+            });
+
+            // Email button: address assembled at click time so it never appears in the page source
+            document.getElementById('email-btn').addEventListener('click', function () {
+                var u = 'chadparnin';
+                var d = ['gmail', 'com'].join('.');
+                window.location.href = 'mailto:' + u + '@' + d;
             });
 
             // Lightbox
