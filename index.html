@@ -152,9 +152,9 @@
         }
         a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
 
-        /* ---- Featured project card ---- */
+        /* ---- Project cards ---- */
+        .projects { display: grid; gap: 14px; }
         .project {
-            margin-top: 28px;
             display: block;
             border: 1px solid var(--border);
             border-radius: 14px;
@@ -325,11 +325,23 @@
 
                 <p>At <a href="https://www.tekstream.com/" target="_blank" rel="noopener">TekStream</a>, I build and scale AppSec programs, architecting CI/CD-integrated scanning across 500+ repositories and dozens of teams, advising executives on tooling and risk, and creating educational content.</p>
 
-                <p>I also built an appsec tool that does everything I've always wanted, AppSec Galaxy, and have custom AI workflows that pair Claude with Burp and Kali for pentesting.</p>
+                <p>I hold a Master's in Cybersecurity Technology, a B.S. in Computer Science from Indiana University, and certifications including GPEN, GCIH, CEH, Security+, and ITIL.</p>
 
+                <p>Off the clock you'll find me on the golf course, doing astrophotography, playing chess, doing yoga, cheering on the Tampa Bay Lightning, chasing national parks, or spending time with family.</p>
+            </div>
+
+            <div class="actions">
+                <a class="btn btn-primary" href="Chad-Parnin-Resume.pdf" target="_blank" rel="noopener">
+                    <i class="fas fa-file-lines"></i> Résumé
+                </a>
+            </div>
+
+            <h2 class="section-title"><i class="fas fa-screwdriver-wrench"></i> Projects</h2>
+            <p class="section-sub">Open-source security tools I've built, plus custom AI workflows that pair Claude with Burp and Kali for pentesting.</p>
+            <div class="projects">
                 <a class="project" href="https://github.com/cparnin/appsec-galaxy" target="_blank" rel="noopener">
                     <span class="project-head"><i class="fab fa-github"></i> AppSec Galaxy</span>
-                    <span class="project-desc">Open-source, AI-powered security scanner (Semgrep, Gitleaks &amp; Trivy) with cross-file attack-chain analysis and automatic code fixes, delivered via PR of course. 🙂</span>
+                    <span class="project-desc">AI-powered security scanner (Semgrep, Gitleaks &amp; Trivy) with cross-file attack-chain analysis and automatic code fixes, delivered via PR of course. 🙂</span>
                     <span class="tags">
                         <span class="tag">SAST</span>
                         <span class="tag">Secrets</span>
@@ -338,14 +350,15 @@
                     </span>
                 </a>
 
-                <p style="margin-top:28px;">I hold a Master's in Cybersecurity Technology, a B.S. in Computer Science from Indiana University, and certifications including GPEN, GCIH, CEH, Security+, and ITIL.</p>
-
-                <p>Off the clock you'll find me on the golf course, doing astrophotography, playing chess, doing yoga, cheering on the Tampa Bay Lightning, chasing national parks, or spending time with family.</p>
-            </div>
-
-            <div class="actions">
-                <a class="btn btn-primary" href="Chad-Parnin-Resume.pdf" target="_blank" rel="noopener">
-                    <i class="fas fa-file-lines"></i> Résumé
+                <a class="project" href="https://github.com/cparnin/polaris" target="_blank" rel="noopener">
+                    <span class="project-head"><i class="fab fa-github"></i> Polaris</span>
+                    <span class="project-desc">Home-network security monitor that discovers every device, maps your network topology, and port-scans for risky exposure &mdash; no router login, no agents, no cloud.</span>
+                    <span class="tags">
+                        <span class="tag">Network Security</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Local-first</span>
+                    </span>
                 </a>
             </div>
 
