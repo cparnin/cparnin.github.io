@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Chad Parnin, Senior Cyber Engineer. I help engineering teams ship secure software, building AppSec programs, CI/CD-integrated scanning, and AI-assisted security tooling.">
-    <meta name="keywords" content="Chad Parnin, application security, Consulting, AppSec, DevSecOps, AI security tooling, penetration testing, CI/CD security, MCP, security engineering">
+    <meta name="description" content="Chad Parnin, Senior Cybersecurity Engineer. I help engineering teams ship secure software, building AppSec programs, CI/CD-integrated scanning, and AI-assisted security tooling.">
     <meta name="author" content="Chad Parnin">
+    <link rel="canonical" href="https://chadparnin.com/">
     <!-- Open Graph for social sharing -->
     <meta property="og:title" content="Chad Parnin | AppSec & Security Engineering">
     <meta property="og:description" content="I help engineering teams ship secure software, building AppSec programs, CI/CD-integrated scanning, and AI-assisted security tooling.">
@@ -18,6 +18,27 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0d1117">
     <title>Chad Parnin | AppSec & Security Engineering</title>
+    <script>
+        // Apply theme before first paint to avoid a light-mode flash
+        document.documentElement.setAttribute('data-theme',
+            localStorage.getItem('theme') ||
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Chad Parnin",
+        "url": "https://chadparnin.com/",
+        "image": "https://chadparnin.com/images/Me-Feb2025.jpg",
+        "jobTitle": "Senior Cybersecurity Engineer",
+        "worksFor": { "@type": "Organization", "name": "TekStream" },
+        "sameAs": [
+            "https://www.linkedin.com/in/chadparnin/",
+            "https://github.com/cparnin"
+        ]
+    }
+    </script>
     <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -323,7 +344,7 @@
 
                 <p>With 10+ years across the Intelligence Community and the private sector, I work alongside software engineers to secure the systems that matter, building practical, drama-free security programs that help teams ship confidently and securely.</p>
 
-                <p>At <a href="https://www.tekstream.com/" target="_blank" rel="noopener">TekStream</a>, I build and scale AppSec programs, architecting CI/CD-integrated scanning across 500+ repositories and dozens of teams, pentesting source code and web applications, advising executives on tooling and risk, and creating educational content. My testing workflows pair Claude with Burp and Kali.</p>
+                <p>At <a href="https://www.tekstream.com/" target="_blank" rel="noopener">TekStream</a>, I build and scale AppSec programs, architecting CI/CD-integrated scanning across 500+ repositories and dozens of teams. I also pentest source code and web applications, advise executives on tooling and risk, and create educational content. My testing workflows pair Claude with Burp and Kali.</p>
 
                 <p>I hold a Master's in Cybersecurity Technology, a B.S. in Computer Science from Indiana University, and certifications including GPEN, GCIH, CEH, Security+, and ITIL.</p>
 
@@ -374,7 +395,7 @@
             </div>
 
             <h2 class="section-title"><i class="fas fa-mountain-sun"></i> Images</h2>
-            <p class="section-sub">Family, golf, friends, and a recent road trip through Colorado and Utah's national parks.</p>
+            <p class="section-sub">Family, golf, friends, and a road trip through Colorado and Utah's national parks.</p>
             <div class="gallery">
                 <img src="images/momdad.jpg" alt="Waterfront lunch with my parents" loading="lazy">
                 <img src="images/popstroke.jpg" alt="Family day out at PopStroke" loading="lazy">
@@ -439,11 +460,20 @@
             const lbImg = lb.querySelector('img');
             document.querySelectorAll('.gallery img').forEach(function (img) {
                 img.style.cursor = 'zoom-in';
-                img.addEventListener('click', function () {
+                img.tabIndex = 0;
+                img.setAttribute('role', 'button');
+                function openLb() {
                     lbImg.src = img.src;
                     lbImg.alt = img.alt;
                     lb.classList.add('open');
                     lb.setAttribute('aria-hidden', 'false');
+                }
+                img.addEventListener('click', openLb);
+                img.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openLb();
+                    }
                 });
             });
             function closeLb() {
